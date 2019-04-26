@@ -139,26 +139,76 @@
     // var hi = ({name}) => console.log('使用箭头和函数和结构表达式core:' + name)
     // hi(person)
 
+    /*
+        //map 和 reduce 
+        //map 接收一个函数，将原数组中的所有元素用这个函数处理后放入新的数组返回
+    
+        let arrInt = [1, 2, 3, 4, 5, 6]
+        let numbers = arrInt.map(s => parseFloat(s));
+        console.log(numbers)
+    
+        
+        let reduce = arrInt.reduce((a, b) => {
+            return a + b
+        });
+        //1+2=3
+        //3+3=6
+        //6+4=10
+        //10+5=15
+        //15+6=21
+    
+        console.log(reduce)*/
 
-    //map 和 reduce 
-    //map 接收一个函数，将原数组中的所有元素用这个函数处理后放入新的数组返回
 
-    let arrInt = [1, 2, 3, 4, 5, 6]
-    let numbers = arrInt.map(s => parseFloat(s));
-    console.log(numbers)
+    /*    //扩展运算符 spread 三个点...    将一个数组转为用逗号分隔的参数序列
+        console.log(...[1, 2, 3])
+        console.log(1, ...[2, 3, 4, 5])
+    
+        function add(x, y) {
+            return x + y
+        }
+    
+        let num = [1, 3]
+        console.log(add(...num))
+    
+        //数组合并
+        let ar = [...[1, 2, 3], ...[4, 5, 6]]
+        console.log(ar)
+        //与结构表达式结合
+        const [first, ...rest] = [1, 2, 3, 4, 5]
+        console.log(first, rest)
+    
+        //将字符串转成数组
+        console.log([...'HELLONISHAO'])*/
 
 
-    let reduce = arrInt.reduce((a, b) => {
-        return a + b
-    });
-    //1+2=3
-    //3+3=6
-    //6+4=10
-    //10+5=15
-    //15+6=21
+    //promise  异步容器
+    const p = new Promise(function (resolve, reject) {
+        setTimeout(() => {
+            let num = Math.random();
+            if (num > 0.5) {
+                resolve("成功了" + num)
+            } else {
+                reject("失败了" + num)
+            }
+        });
+    })
 
-    console.log(reduce)
 
+    p.then(function (value) {
+        //成功
+        console.log(value)
+    }).catch(function (error) {
+        //失败
+        console.log(error)
+    })
+
+
+    p.then((value => {
+        console.log(value)
+    })).catch((error => {
+        console.log(error)
+    }))
 
 </script>
 
